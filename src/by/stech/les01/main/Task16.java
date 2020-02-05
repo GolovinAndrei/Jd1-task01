@@ -3,10 +3,20 @@ package by.stech.les01.main;
 //Найти произведение цифр заданного четырехзначного числа.
 public class Task16 {
 
-	public static int[] digitOfNumber(int a, int b) { // метод для использования в задачах 35 и 36
+	public static int[] digitOfNumber(int a) { // метод для использования в задачах с разбиением числа на цифры
 		int res = 0;
 		int i = 1;
-		int[] digit = new int[b];
+		int n=0;
+		
+		while (res != a) {
+			res = (int) (a % Math.pow(10, i));
+			n++;
+			i++;
+		}
+		int[] digit = new int[n];
+		res = 0;
+		i = 1;
+	
 		while (res != a) {
 			a -= res;
 			res = (int) (a % Math.pow(10, i));
