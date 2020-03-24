@@ -1,0 +1,2 @@
+author=Эккель  title=Не Философия Java id=3 
+author=Эккель  title=Упаси меня Java id=4 
