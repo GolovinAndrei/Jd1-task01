@@ -8,8 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import by.stach.library.bean.Book;
-import by.stach.library.bean.User;
+
+import by.stech.library.bean.Book;
+import by.stech.library.bean.User;
 
 public class FileAdminDao implements AdminDao {
 
@@ -43,20 +44,12 @@ public class FileAdminDao implements AdminDao {
 
 	@Override
 	public boolean editBook (Book book) throws DaoException {
-		
-		
-		
-			
-		}
-		
-		
-		
-		
-		
 		return false;
+	
+		
 	}
 	
-	public List<User> bookInfo() throws DaoException {
+	public List<Book> bookInfo() throws DaoException {
 		List<Book> books = new ArrayList<Book>();
 
 		BufferedReader input = null;
@@ -94,6 +87,12 @@ public class FileAdminDao implements AdminDao {
 		}
 		return books;
 
+	}
+
+	@Override
+	public boolean edit(int idBook) throws DaoException {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	
