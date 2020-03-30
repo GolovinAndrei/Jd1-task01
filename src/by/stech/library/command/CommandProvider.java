@@ -9,8 +9,13 @@ public class CommandProvider {
 
 	public CommandProvider() {
 		commands.put(CommandName.REGISTRATION, new RegistrationCommand());
-		commands.put(CommandName.AUTHORIZATION, new AuthorizationCommand());
 		commands.put(CommandName.ADD_NEW_BOOK, new AddNewBook());
+		commands.put(CommandName.AUTHORIZATION, new AuthorizationCommand());
+		commands.put(CommandName.TAKE_BOOK, new TakeBook());
+		commands.put(CommandName.GIVE_BACK_BOOK, new GiveBackBook());
+		commands.put(CommandName.WRONG_REQUEST, new WrongRequest());
+		commands.put(CommandName.SHOW_BOOKS, new ShowBook());
+	}
 	}
 
 	public Command getCommand(String strCommandName) {
