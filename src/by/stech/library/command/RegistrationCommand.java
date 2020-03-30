@@ -27,11 +27,11 @@ public class RegistrationCommand implements Command  {
 
 			service.registration(user);
 
-			response = "Successfully added! (" + login + ")";
+			response = "Successfully (" + login + ")";
 		
 		} catch (ServiceException e) {
 
-			response = "Something wrong...";
+			response = "Some problems";
 
 		}
 		return response;

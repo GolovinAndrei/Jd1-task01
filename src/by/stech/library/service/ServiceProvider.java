@@ -4,13 +4,18 @@ public class ServiceProvider {
 
 private static final ServiceProvider instance = new ServiceProvider();
 	
-	private UserService userService = new UserServiceImpl();
-	
-	public static ServiceProvider getInstance() {
-		return instance;
-	}
+private UserService userService = new UserServiceImpl();
+private BookService adminService = new BookServiceImpl();
 
-	public UserService getUserService() {
-		return userService;
-	}
+public static ServiceProvider getInstance() {
+	return instance;
+}
+
+public UserService getUserService() {
+	return userService;
+}
+
+public BookService getBookService() {
+	return adminService;
+}
 }

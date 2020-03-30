@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import by.stech.library.bean.Book;
 import by.stech.library.bean.User;
 
@@ -18,37 +17,63 @@ public class FileAdminDao implements AdminDao {
 	public boolean add(Book newBook) throws DaoException {
 		FileWriter fw = null;
 		try {
-		fw = new FileWriter ("D:\\Java Learning\\jd-aut&reg\\src\\resources\\books.txt", true);
-		String author = newBook.getAuthor();
-		String title = newBook.getTitle();
-		int iD = newBook.getiD();
-		String result = "\n"+"author="+author+" title="+title+" ID="+iD;
-			
+			fw = new FileWriter("D:\\Java Learning\\jd-aut&reg\\src\\resources\\books.txt", true);
+			String author = newBook.getAuthor();
+			String title = newBook.getTitle();
+			int iD = newBook.getiD();
+			String result = "\n" + "author=" + author + " title=" + title + " ID=" + iD;
+
 			fw.write(result);
 		} catch (IOException e) {
 			throw new DaoException();
-			
-		}
-		finally {
+
+		} finally {
 			try {
 				fw.close();
 			} catch (IOException e) {
 				throw new DaoException();
-				
+
 			}
 		}
 		return true;
-		
-		
+
 	}
 
 	@Override
-	public boolean editBook (Book book) throws DaoException {
-		return false;
-	
-		
+	public boolean editBook(Book book, int idBook) throws DaoException {
+
+		FileWriter fw = null;
+
+		try {
+
+			List<Book> books = bookInfo();
+			fw = new FileWriter("D:\\Java Learning\\jd-aut&reg\\src\\resources\\books.txt", true);
+			for (Book b : books) {
+				if (idBook == b.getiD()) {
+					b = book;
+					b.setiD(idBook);
+
+				}
+				fw.write(b.toString());
+				fw.append('\n');
+			}
+			return true;
+
+		} catch (IOException e) {
+			throw new DaoException(e);
+		} finally {
+			try {
+				if (fw != null) {
+					fw.close();
+				}
+			} catch (IOException e) {
+				throw new DaoException(e);
+			}
+
+		}
+
 	}
-	
+
 	public List<Book> bookInfo() throws DaoException {
 		List<Book> books = new ArrayList<Book>();
 
@@ -89,12 +114,4 @@ public class FileAdminDao implements AdminDao {
 
 	}
 
-	@Override
-	public boolean edit(int idBook) throws DaoException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	
-	
 }

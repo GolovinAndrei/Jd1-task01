@@ -8,4 +8,6 @@ public interface BookService {
 
 	Book findBook (String arg, List<Book> books) throws ServiceException;
 	Book findBook (int id, List<Book> books) throws ServiceException;
+	boolean add(Book book) throws ServiceException;
+	boolean edit(int idBook, Book book) throws ServiceException;
 }
